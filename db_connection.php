@@ -1,17 +1,13 @@
 <?php
-// Definindo as variáveis de conexão
-$host = "localhost";
-$dbname = "vendas";
+$severname = "localhost";
+$database = "vendas";
 $username = "root";
 $password = "";
 
-try {
-    // Criando uma conexão PDO
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Definindo o modo de erro do PDO para exceções
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    // Se ocorrer um erro, ele será exibido aqui
-    die("Erro na conexão: " . $e->getMessage());
+$conn = mysqli_connect($severname, $username, $password, $database);
+//O Arthur e gay
+if (!$conn) {
+    die("Conexão Falhou:" . mysqli_connect_error());
 }
+
 ?>
